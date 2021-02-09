@@ -12,9 +12,9 @@ let optional = '';
 export const nasaApi = {
   getPhotos(page: number, sol: string, rover: string, camera: string) {
     if (camera !== 'none') {
-      optional = `camera=${camera}`
+      optional = `&camera=${camera}`
     } else optional = ''
-    return instance.get<ResponseType>(`${rover}/photos?sol=${sol}&page=${page}&${optional}&api_key=${api}`);
+    return instance.get<ResponseType>(`${rover}/photos?sol=${sol}&page=${page}${optional}&api_key=${api}`);
   },
 }
 

@@ -1,16 +1,24 @@
 import {Dispatch} from 'redux';
 import {nasaApi, PhotoType, ResEpisodesType} from '../api/api'
 
-const initialState: ResEpisodesType = {
-  photos: []
+export type ErrorType = {
+  error?: any
+}
+const initialState: ResEpisodesType | ErrorType = {
+  photos: [],
+  error: null,
 }
 
-export const photosReducer = (state: ResEpisodesType = initialState, action: ActionsType): ResEpisodesType => {
+export const photosReducer = (state: ResEpisodesType | ErrorType = initialState, action: ActionsType): ResEpisodesType | ErrorType => {
   switch (action.type) {
-    case "SET-PHOTOS":
+    case 'APP/SET-PHOTOS':
       return {
         ...state,
         photos: action.photos
+      }
+    case "APP/SET-ERROR":
+      return {
+        ...state, error: action.error
       }
     default:
       return state
@@ -19,7 +27,8 @@ export const photosReducer = (state: ResEpisodesType = initialState, action: Act
 
 // actions
 
-export const setPhotosAC = (photos: Array<PhotoType>) => ({type: 'SET-PHOTOS', photos} as const)
+export const setPhotosAC = (photos: Array<PhotoType>) => ({type: 'APP/SET-PHOTOS', photos} as const);
+export const setAppErrorAC = (error: string | null) => ({type: 'APP/SET-ERROR', error} as const)
 
 // thunks
 export const setPhotosTC = (page: number, sol: string, rover: string, camera: string) => {
@@ -29,14 +38,22 @@ export const setPhotosTC = (page: number, sol: string, rover: string, camera: st
         dispatch(setPhotosAC(res.data.photos))
       })
       .catch(error => {
-        console.log(error, dispatch);
+        handleError(error, dispatch);
+        // alert(error);
       })
   }
 }
 
+// error handlers
+
+const handleError = (error: string, dispatch: Dispatch<SetAppErrorActionType> ) => {
+  dispatch(setAppErrorAC(` message ${error}`))
+}
 // types
 
 export type SetPhotosActionType = ReturnType<typeof setPhotosAC>;
-type ActionsType = SetPhotosActionType
+export type SetAppErrorActionType = ReturnType<typeof setAppErrorAC>;
+
+type ActionsType = SetPhotosActionType | SetAppErrorActionType;
 
 type ThunkDispatch = Dispatch<ActionsType>

@@ -4,6 +4,7 @@ import '@material/react-button/index.scss';
 
 type PropsType = {
   label: string
+  disabled?: boolean
   value: number
   onSetPage: (value: number) => void
 }
@@ -15,7 +16,7 @@ export const MyButton = React.memo((props: PropsType) => {
   }
 
   return (
-    <Button raised onClick={handleChange} >
+    <Button raised disabled={props.disabled} onClick={handleChange} >
       {props.label}
     </Button>
   );
