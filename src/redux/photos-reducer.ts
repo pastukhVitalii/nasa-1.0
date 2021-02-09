@@ -1,4 +1,4 @@
-import {Dispatch} from 'redux'
+import {Dispatch} from 'redux';
 import {nasaApi, PhotoType, ResEpisodesType} from '../api/api'
 
 const initialState: ResEpisodesType = {
@@ -22,9 +22,9 @@ export const photosReducer = (state: ResEpisodesType = initialState, action: Act
 export const setPhotosAC = (photos: Array<PhotoType>) => ({type: 'SET-PHOTOS', photos} as const)
 
 // thunks
-export const setPhotosTC = () => {
+export const setPhotosTC = (page: number, sol: string, rover: string, camera: string) => {
   return (dispatch: ThunkDispatch) => {
-    nasaApi.getPhotos()
+    nasaApi.getPhotos(page, sol, rover, camera)
       .then((res) => {
         dispatch(setPhotosAC(res.data.photos))
       })

@@ -1,0 +1,74 @@
+$primary-color: #6200ee;
+
+$desktops-bp: 991px;
+$tablets-bp: 768px;
+$mobile-bp: 575px;
+
+@mixin breakpoint($bp) {
+
+  @media screen and (max-width: $bp) {
+    @content;
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  background-color: $primary-color;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header span {
+  text-transform: uppercase;
+  font-size: 22px;
+  margin: 20px;
+}
+
+.sort_block {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.sort_block .mdc-text-field {
+  margin: 0 auto;
+}
+
+.sort_block .mdc-select:last-child {
+  @include breakpoint($tablets-bp) {
+    margin: 10px 0;
+  }
+}
+
+.photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sort_block {
+  @include breakpoint($desktops-bp) {
+    width: 90%;
+  }
+  @include breakpoint($tablets-bp) {
+    flex-direction: column;
+    width: min-content;
+  }
+}
+
+.paginator {
+  margin: 20px;
+}
+
+.paginator span {
+  margin: 0 20px;
+}
