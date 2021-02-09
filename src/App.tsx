@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "./redux/store";
+import {PhotoType} from "./api/api";
+import {setPhotosTC} from "./redux/photos-reducer";
 
-function App() {
+export const App = React.memo(() => {
+
+  const photos = useSelector<AppStateType, Array<PhotoType>>(state => state.photo.photos);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setPhotosTC());
+  }, [dispatch]);
+
+  console.log(photos);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
-}
-
-export default App;
+})
