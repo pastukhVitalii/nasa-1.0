@@ -2,7 +2,7 @@ import {Dispatch} from 'redux';
 import {nasaApi, PhotoType, ResEpisodesType} from '../api/api'
 
 export type ErrorType = {
-  error?: any
+  error: string | null
 }
 const initialState: ResEpisodesType | ErrorType = {
   photos: [],
@@ -39,7 +39,6 @@ export const setPhotosTC = (page: number, sol: string, rover: string, camera: st
       })
       .catch(error => {
         handleError(error, dispatch);
-        // alert(error);
       })
   }
 }

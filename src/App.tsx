@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './App.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {setPhotosTC} from "./redux/photos-reducer";
@@ -27,12 +27,14 @@ export const App = React.memo(() => {
     dispatch(setPhotosTC(page, sol, rover, camera));
   }, [dispatch, page, sol, rover, camera]);
 
-  const incrementPage = (page: number) => {
+  const incrementPage = useCallback((page: number) => {
     setPage(page + 1)
-  }
-  const decrementPage = (page: number) => {
+  }, []);
+
+  const decrementPage = useCallback((page: number) => {
     setPage(page - 1)
-  }
+  }, []);
+
   console.log(error);
   return (
     <div className={'App'}>

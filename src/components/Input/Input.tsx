@@ -1,4 +1,4 @@
-import React, {FormEvent} from 'react';
+import React, {FormEvent, useCallback} from 'react';
 import TextField, {HelperText, Input} from '@material/react-text-field';
 import '@material/react-text-field/index.scss';
 
@@ -12,9 +12,9 @@ export const MyInput = React.memo((props: PropsType) => {
   let isValid;
   isValid = !isNaN(+props.value);
 
-  const onChange = (e: FormEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: FormEvent<HTMLInputElement>) => {
     props.onSetSol(e.currentTarget.value);
-  }
+  }, [props.value, props.onSetSol]);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import '@material/react-list/index.scss';
 import '@material/react-menu-surface/index.scss';
 import '@material/react-menu/index.scss';
@@ -12,9 +12,10 @@ type PropsType = {
 }
 
 export const MySelect = React.memo((props: PropsType) => {
-    const onEnhancedChange = (index: any, item: any) => (
+
+    const onEnhancedChange = useCallback((index: any, item: any) => {
       props.onSetValue(item.getAttribute('data-value')
-      ));
+      )}, [props.value, props.onSetValue])
 
     return (
       <div>
