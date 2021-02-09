@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/pastukhVitalii/nasa-1.0/static/css/main.b8ff3f24.chunk.css",
+    "main.js": "/pastukhVitalii/nasa-1.0/static/js/main.1e14353d.chunk.js",
+    "main.js.map": "/pastukhVitalii/nasa-1.0/static/js/main.1e14353d.chunk.js.map",
+    "runtime-main.js": "/pastukhVitalii/nasa-1.0/static/js/runtime-main.18701d1d.js",
+    "runtime-main.js.map": "/pastukhVitalii/nasa-1.0/static/js/runtime-main.18701d1d.js.map",
+    "static/css/2.f8ac06cb.chunk.css": "/pastukhVitalii/nasa-1.0/static/css/2.f8ac06cb.chunk.css",
+    "static/js/2.1986fdff.chunk.js": "/pastukhVitalii/nasa-1.0/static/js/2.1986fdff.chunk.js",
+    "static/js/2.1986fdff.chunk.js.map": "/pastukhVitalii/nasa-1.0/static/js/2.1986fdff.chunk.js.map",
+    "static/js/3.1cd949b7.chunk.js": "/pastukhVitalii/nasa-1.0/static/js/3.1cd949b7.chunk.js",
+    "static/js/3.1cd949b7.chunk.js.map": "/pastukhVitalii/nasa-1.0/static/js/3.1cd949b7.chunk.js.map",
+    "index.html": "/pastukhVitalii/nasa-1.0/index.html",
+    "static/css/2.f8ac06cb.chunk.css.map": "/pastukhVitalii/nasa-1.0/static/css/2.f8ac06cb.chunk.css.map",
+    "static/css/main.b8ff3f24.chunk.css.map": "/pastukhVitalii/nasa-1.0/static/css/main.b8ff3f24.chunk.css.map",
+    "static/js/2.1986fdff.chunk.js.LICENSE.txt": "/pastukhVitalii/nasa-1.0/static/js/2.1986fdff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.18701d1d.js",
+    "static/css/2.f8ac06cb.chunk.css",
+    "static/js/2.1986fdff.chunk.js",
+    "static/css/main.b8ff3f24.chunk.css",
+    "static/js/main.1e14353d.chunk.js"
+  ]
+}
